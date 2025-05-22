@@ -1,0 +1,1121 @@
+/* 匯入 Noto Sans TC 字體 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+/* 基礎設置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 數學你多會品牌色系 */
+:root {
+  --brand-primary: #FF87B0;
+  --brand-secondary: #FFB347;
+  --brand-primary-light: rgba(255, 135, 176, 0.1);
+  --brand-secondary-light: rgba(255, 179, 71, 0.1);
+  --brand-gradient: linear-gradient(135deg, #FF87B0, #FFB347);
+  --brand-gradient-hover: linear-gradient(135deg, #FF77A0, #FFA337);
+}
+
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto; /* 允許垂直滾動 */
+}
+
+/* 容器樣式 */
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* 減去頁腳高度 */
+  height: auto;
+  overflow-y: auto; /* 允許垂直滾動 */
+}
+
+/* 標題樣式 */
+.header {
+  background-color: white;
+  color: #333;
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
+  position: relative; /* 建立堆疊上下文 */
+  padding: 0; /* 移除額外的 padding */
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 4px;
+  padding: 0; /* 移除 padding */
+}
+
+/* 標題文字樣式 */
+.topic-title {
+  color: #333;
+  font-weight: bold;
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* 描述文字樣式 */
+.topic-description {
+  color: #666;
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.icon-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  cursor: pointer;
+  z-index: 1; /* 確保連結可以被點擊 */
+  position: relative; /* 建立堆疊上下文 */
+  text-decoration: none; /* 移除連結底線 */
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  pointer-events: none; /* 確保圖片不會干擾點擊事件 */
+}
+
+/* 歡迎文字區塊 */
+.welcome-text {
+  width: 100%;
+  max-width: 400px; /* 與按鈕相同的最大寬度 */
+  text-align: left; /* 文字靠左對齊 */
+  margin-bottom: 1rem;
+}
+
+.welcome-text h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.welcome-text p {
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* 題目頁面的單元標題 */
+.quiz-page .header {
+  display: none;
+}
+
+/* 單元標題樣式 */
+.quiz-title {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* 題目內容容器 */
+.quiz-content-container {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.6));
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  height: auto;
+  overflow-y: auto; /* 允許垂直滾動 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 135, 176, 0.1);
+}
+
+/* 卡片式布局 */
+.card {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.6));
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 135, 176, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card p {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* 按鈕網格 */
+.grid {
+  width: 100%;
+  max-width: 400px; /* 與歡迎文字相同的最大寬度 */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0px;
+  margin: 0 auto;
+}
+
+/* 按鈕基礎樣式 */
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 16px;
+  background: var(--brand-gradient);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 按鈕懸停效果 */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  background: var(--brand-gradient-hover);
+}
+
+/* 按鈕顏色變體 */
+.btn-primary {
+  width: 100%; /* 使用完整寬度 */
+  max-width: 400px; /* 限制最大寬度 */
+  background: var(--brand-gradient);
+  color: white;
+  margin: 0 auto; /* 自動邊距實現水平置中 */
+  text-align: center; /* 文字置中 */
+}
+
+.btn-primary:hover {
+  background: var(--brand-gradient-hover);
+}
+
+.btn-warning {
+  width: 100%; /* 使用完整寬度 */
+  max-width: 400px; /* 限制最大寬度 */
+  background: linear-gradient(135deg, #FFB347, #FF8B00);
+  color: white;
+  margin: 0 auto; /* 自動邊距實現水平置中 */
+  text-align: center; /* 文字置中 */
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #FFA337, #FF7B00);
+}
+
+.btn-default {
+  background: linear-gradient(135deg, #9ca3af, #6b7280);
+  width: 100%; /* 使用完整寬度 */
+  max-width: 400px; /* 限制最大寬度 */
+  color: white;
+  margin: 0 auto; /* 自動邊距實現水平置中 */
+  text-align: center; /* 文字置中 */
+}
+
+.btn-default:hover {
+  background: linear-gradient(135deg, #8c93a0, #5b6271);
+}
+
+/* 連結按鈕樣式 */
+a.btn {
+  font-size: 1.1rem; /* 確保連結的字級與按鈕一致 */
+  line-height: 1.5; /* 確保連結的行高與按鈕一致 */
+  font-weight: 500; /* 確保連結的字重與按鈕一致 */
+  display: flex; /* 使用 flex 來確保文字垂直置中 */
+  align-items: center; /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+  text-decoration: none;
+}
+
+/* 下一題按鈕樣式 */
+.btn-primary.w-full {
+  width: 100%; /* 會跟隨 container 的寬度 */
+  margin-top: 1rem;
+  color: white;
+}
+
+/* 單元按鈕內容布局 */
+/* 回合徽章樣式 */
+.topic-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.round-badge {
+  background: linear-gradient(135deg, #FF87B0, #FFB347);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  display: inline-block;
+  justify-content: right;
+  margin-left: auto; /* 確保靠右對齊 */
+  white-space: nowrap; /* 防止文字換行 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 單元選擇按鈕 */
+.topics-btn {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.6));
+  color: #333;
+  text-align: left;
+  width: 100%;
+  min-height: 44px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 135, 176, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  white-space: normal;
+  opacity: 1;
+  visibility: visible;
+  margin: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.topics-btn:hover {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.8));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 首頁菜單樣式 */
+.logo-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.main-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.menu-list {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.document-icon {
+  background-color: #FFD1C2;
+}
+
+.video-icon {
+  background-color: #C2D1FF;
+}
+
+.book-icon {
+  background-color: #C2FFD1;
+}
+
+.menu-text {
+  flex: 1;
+}
+
+.menu-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.menu-subtitle {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.menu-arrow, .external-link {
+  font-size: 24px;
+  color: #CCC;
+  margin-left: 10px;
+}
+
+/* 返回按鈕樣式 */
+.back-button-container {
+  margin-bottom: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: var(--brand-primary);
+}
+
+.back-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* 選項基礎樣式 */
+.option {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0.75rem auto;
+  padding: 1rem;
+  border: 2px solid rgba(255, 135, 176, 0.2);
+  border-radius: 16px;
+  background: white;
+  color: #000000 !important;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.option:hover {
+  border-color: var(--brand-primary);
+  background-color: var(--brand-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 選項網格容器 */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem auto;
+}
+
+/* 進度條 */
+.progress-bar {
+  width: 100%;
+  max-width: 500px;
+  height: 0.5rem;
+  background-color: rgba(255, 135, 176, 0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin: 1rem auto;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--brand-gradient);
+  transition: width 0.5s ease;
+}
+
+/* 題目區域樣式 */
+.question-container {
+  margin-bottom: 1.5rem;
+  height: auto;
+}
+
+/* 頁腳樣式 */
+footer {
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+/* 載入畫面樣式 */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 1.2rem;
+  color: var(--brand-primary);
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 新項目進入動畫 */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.options-grid .option:nth-child(1) { animation: slideIn 0.3s ease-out 0.05s both; }
+.options-grid .option:nth-child(2) { animation: slideIn 0.3s ease-out 0.1s both; }
+.options-grid .option:nth-child(3) { animation: slideIn 0.3s ease-out 0.15s both; }
+.options-grid .option:nth-child(4) { animation: slideIn 0.3s ease-out 0.2s both; }
+.options-grid .option:nth-child(5) { animation: slideIn 0.3s ease-out 0.25s both; }
+
+/* 選項狀態樣式 */
+.option.correct,
+.option.correct .math-content {
+  border-color: #059669 !important;
+  background-color: rgba(5, 150, 105, 0.1) !important;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+}
+
+.option.incorrect,
+.option.incorrect .math-content {
+  border-color: var(--brand-primary) !important;
+  background-color: var(--brand-primary-light) !important;
+  box-shadow: 0 0 0 2px rgba(255, 135, 176, 0.3);
+}
+
+.option.show-correct,
+.option.show-correct .math-content {
+  border-color: #059669 !important;
+  background-color: rgba(5, 150, 105, 0.1) !important;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+  opacity: 0.8;
+}
+
+/* 選項內容樣式 */
+.option-text,
+.option-math {
+  display: block;
+  color: #000000;
+}
+
+.option-image {
+  max-height: 50px;
+  width: auto;
+  margin: 0 auto;
+}
+
+/* LaTeX 選項的特殊樣式 */
+.option-math {
+  padding: 0.5rem;
+  margin: 0;
+  min-height: 30px;
+}
+
+/* 特別針對選項文字的樣式 */
+.option-text {
+  font-size: 1.125rem; /* 與按鈕一致的字級 */
+  font-weight: 400; /* 與按鈕一致的字重 */
+  display: block; /* 確保文字能完整顯示 */
+}
+
+/* LaTeX 內容樣式 */
+.math-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 30px;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  background-color: transparent !important;
+}
+
+.option .math-content {
+  overflow-y: hidden;
+}
+
+/* 解析區域 */
+.explanation-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background-color: var(--brand-secondary-light);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 圖片響應式 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* 填充題輸入框 */
+.fill-blank-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 135, 176, 0.3);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fill-blank-input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(255, 135, 176, 0.2);
+}
+
+/* 配合題容器 */
+.matching-container {
+  margin-top: 1rem;
+}
+
+.matching-option {
+  padding: 0.75rem;
+  background-color: white;
+  border: 1px solid rgba(255, 135, 176, 0.2);
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  cursor: move;
+  transition: all 0.3s ease;
+}
+
+.matching-option:hover {
+  background-color: var(--brand-primary-light);
+  transform: translateY(-2px);
+}
+
+/* 回饋訊息 */
+.feedback-message {
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.125rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.text-green-600 {
+  color: #059669;
+}
+
+.text-red-600 {
+  color: var(--brand-primary);
+}
+
+/* 完成頁面標題 */
+.completion-title {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* 完成內容容器 */
+.completion-content {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 240, 245, 0.6));
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  height: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 確保內容水平置中 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 135, 176, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 按鈕容器 */
+.grid.gap-4 {
+  width: 100%;
+  max-width: 400px; /* 稍微縮小一點寬度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 確保按鈕水平置中 */
+  gap: 1rem;
+  margin: 0 auto; /* 自動邊距實現水平置中 */
+}
+
+/* 統計資訊容器 */
+.stats-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+/* 統計文字樣式 */
+.stats-text {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+/* 單元數字徽章 */
+.unit-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* 單元名稱 */
+.topic-name {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 響應式調整 */
+@media screen and (max-width: 768px) {
+  body {
+    position: relative; /* 改為相對定位 */
+  }
+  
+  .container {
+    padding: 12px;
+    min-height: auto; /* 移除最小高度限制 */
+  }
+  
+  .quiz-content-container {
+    margin-bottom: 20px; /* 增加底部間距 */
+    padding: 1.25rem;
+  }
+  
+  .btn, .option {
+    border-radius: 12px;
+  }
+}
+
+/* 確保 MathJax 內容在選項中正確對齊 */
+.option-text .MathJax {
+  margin: 0 auto;
+}
+
+/* 確保 MathJax 容器不會覆蓋按鈕的背景色 */
+.option.correct .math-content,
+.option.incorrect .math-content,
+.option.show-correct .math-content {
+  background-color: transparent !important;
+}
+
+/* MathJax 容器樣式 */
+.MathJax_Display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100%;
+  padding: 5px 0;
+}
+
+/* 確保公式在手機上也能完整顯示 */
+@media (max-width: 768px) {
+  .MathJax_Display {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
+/* 文字相關輔助類 */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* 防止頁面內容被截斷 */
+.question-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* 問題容器樣式 */
+.quiz-question-image {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 當發生錯誤時顯示解析按鈕 */
+.show-explanation-btn {
+  background: none;
+  border: none;
+  color: var(--brand-secondary);
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.show-explanation-btn:hover {
+  color: #FF9A00;
+  transform: scale(1.05);
+}
+
+.show-explanation-btn i {
+  margin-right: 0.5rem;
+}
+
+/* 單元和回合訊息 */
+.quiz-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.quiz-info-topic {
+  font-weight: 500;
+  color: #333;
+}
+
+.quiz-info-round {
+  background: var(--brand-gradient);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+}
+
+/* 填空題樣式 */
+.fill-blank-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* 通用邊距和補丁 */
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-x-2 > * + * { margin-left: 0.5rem; }
+
+/* 固定底部按鈕 */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* 一些實用工具類 */
+.font-medium { font-weight: 500; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+
+.rounded-full { border-radius: 9999px; }
+
+.shadow-sm { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
+.shadow { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); }
+.shadow-md { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); }
+
+/* 禁用狀態 */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 特殊交互元素 */
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clickable:hover {
+  opacity: 0.8;
+}
+
+/* 數學影響特定樣式 */
+.math-symbol {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+}
+
+/* 單元完成的標記 */
+.topic-completed {
+  position: relative;
+}
+
+.topic-completed:after {
+  content: '✓';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--brand-gradient);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 選擇器和輔助類 */
+button:focus {
+  outline: none;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.text-white {
+  color: white;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+/* 使用css變數來輕鬆更改顏色 */
+.bg-primary {
+  background-color: var(--brand-primary);
+}
+
+.bg-secondary {
+  background-color: var(--brand-secondary);
+}
+
+.border-primary {
+  border-color: var(--brand-primary);
+}
+
+.border-secondary {
+  border-color: var(--brand-secondary);
+}
+
+.text-primary {
+  color: var(--brand-primary);
+}
+
+.text-secondary {
+  color: var(--brand-secondary);
+}
